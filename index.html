@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammad Younis Abbasi | AI Developer & Software Engineer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd',
+                            400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9',
+                            800: '#5b21b6', 900: '#4c1d95',
+                        },
+                        secondary: {
+                            50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9',
+                            400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490',
+                            800: '#155e75', 900: '#164e63',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- LINK TO EXTERNAL CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans transition-colors duration-300 dark selection:bg-primary-500 selection:text-white" id="home">
+
+    <!-- Glowing background elements for aesthetic touch -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary-600 glow-orb pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-600 glow-orb pointer-events-none z-0"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-slate-950/70 border-b border-slate-800/50 light:bg-white/70 light:border-slate-200/50" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        Hammad Younis Abbasi.
+                    </span>
+                    <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary-500/10 text-primary-400 border border-primary-500/20">
+                        AI Developer
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 font-medium">
+                    <a href="#home" class="nav-link text-primary-400 border-b-2 border-primary-500 pb-1 text-sm tracking-wide transition-all duration-300">Home</a>
+                    <a href="#about" class="nav-link text-slate-400 hover:text-slate-200 pb-1 text-sm tracking-wide transition-all duration-300">About</a>
+                    <a href="#skills" class="nav-link text-slate-400 hover:text-slate-200 pb-1 text-sm tracking-wide transition-all duration-300">Skills</a>
+                    <a href="#experience" class="nav-link text-slate-400 hover:text-slate-200 pb-1 text-sm tracking-wide transition-all duration-300">Experience</a>
+                    <a href="#projects" class="nav-link text-slate-400 hover:text-slate-200 pb-1 text-sm tracking-wide transition-all duration-300">Projects</a>
+                    <a href="#contact" class="nav-link text-slate-400 hover:text-slate-200 pb-1 text-sm tracking-wide transition-all duration-300">Contact</a>
+                </div>
+
+                <!-- Dark / Light toggle and CTA -->
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 text-slate-300 transition-all duration-300 focus:outline-none" title="Toggle Theme">
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400 text-base"></i>
+                        <i class="fa-solid fa-moon dark:hidden text-slate-600 text-base"></i>
+                    </button>
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-500 hover:to-secondary-500 text-white font-semibold text-sm shadow-lg shadow-primary-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
+                        Let's Talk <i class="fa-solid fa-paper-plane text-xs"></i>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-slate-950/95 border-b border-slate-800/80 transition-all duration-300" id="mobileMenu">
+            <div class="px-4 pt-2 pb-6 space-y-3 font-medium">
+                <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl bg-slate-900 text-primary-400 text-sm">Home</a>
+                <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900/50 hover:text-white text-sm">About</a>
+                <a href="#skills" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900/50 hover:text-white text-sm">Skills</a>
+                <a href="#experience" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900/50 hover:text-white text-sm">Experience</a>
+                <a href="#projects" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900/50 hover:text-white text-sm">Projects</a>
+                <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-900/50 hover:text-white text-sm">Contact</a>
+                <a href="#contact" class="flex sm:hidden items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold text-sm">
+                    Let's Talk <i class="fa-solid fa-paper-plane text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden z-10 flex items-center justify-center min-h-[90vh]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-primary-500/10 text-primary-400 border border-primary-500/20 text-xs sm:text-sm font-semibold tracking-wide shadow-inner">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-500"></span>
+                        </span>
+                        Available for Internships & Projects
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none text-slate-100">
+                        Hi, I'm <span class="bg-gradient-to-r from-primary-400 via-secondary-300 to-primary-500 bg-clip-text text-transparent block sm:inline mt-2">Hammad Younis Abbasi</span>
+                    </h1>
+
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-400 h-10">
+                        <span class="typing-text typing-cursor"></span>
+                    </h2>
+
+                    <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Computer Science student specialized in constructing high-impact Agentic AI systems, intelligent autonomous LLM workflows, and fast C++ backend applications.
+                    </p>
+
+                    <!-- Contact Details Badges -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 pt-2 text-xs sm:text-sm font-medium">
+                        <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800 text-slate-300">
+                            <i class="fa-solid fa-location-dot text-secondary-400"></i> Taxila, Pakistan
+                        </span>
+                        <a href="tel:0347-5678390" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800 text-slate-300 hover:border-primary-500 transition-colors duration-300">
+                            <i class="fa-solid fa-phone text-secondary-400"></i> 0347-5678390
+                        </a>
+                        <a href="mailto:hammadyounisabbasi@gmail.com" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800 text-slate-300 hover:border-primary-500 transition-colors duration-300">
+                            <i class="fa-solid fa-envelope text-secondary-400"></i> hammadyounisabbasi@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 pt-4">
+                        <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-500 hover:to-secondary-500 text-white font-bold text-base text-center shadow-xl shadow-primary-600/25 transition-all duration-300 transform hover:-translate-y-1">
+                            Explore Projects <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-850 text-slate-300 hover:text-white font-bold text-base text-center border border-slate-800 hover:border-slate-700 transition-all duration-300 transform hover:-translate-y-1">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Social Handles -->
+                    <div class="flex justify-center lg:justify-start items-center gap-5 pt-6">
+                        <span class="text-sm font-semibold text-slate-500 uppercase tracking-widest">Connect:</span>
+                        <a href="https://www.linkedin.com/in/hammadyounisabbasi" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary-400 text-2xl transition-all duration-300 transform hover:scale-110" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/hammadyounisabbasi" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-secondary-400 text-2xl transition-all duration-300 transform hover:scale-110" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphics/Visual Card -->
+                <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl bg-slate-900/70 border border-slate-800/80 shadow-2xl overflow-hidden flex flex-col justify-between p-8 group hover:border-primary-500/50 transition-all duration-500">
+                        
+                        <!-- Premium Inner decoration -->
+                        <div class="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-primary-500/10 blur-xl pointer-events-none group-hover:bg-primary-500/20 transition-all duration-500"></div>
+                        <div class="absolute -bottom-16 -left-16 w-32 h-32 rounded-full bg-secondary-500/10 blur-xl pointer-events-none group-hover:bg-secondary-500/20 transition-all duration-500"></div>
+
+                        <!-- Top row -->
+                        <div class="flex items-center justify-between z-10">
+                            <div class="flex gap-1.5">
+                                <span class="w-3.5 h-3.5 rounded-full bg-rose-500/80"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-amber-500/80"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-emerald-500/80"></span>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500 font-mono tracking-widest">v2.0.26</span>
+                        </div>
+
+                        <!-- Center details -->
+                        <div class="my-auto space-y-4 z-10 text-left">
+                            <div class="flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-tr from-primary-600 to-secondary-500 text-white shadow-xl shadow-primary-600/20 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                <i class="fa-solid fa-brain text-4xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-extrabold text-slate-100 tracking-tight">Hammad Younis Abbasi</h3>
+                                <p class="text-xs font-semibold text-primary-400 font-mono mt-1">AI / LLM & C++ Specialist</p>
+                            </div>
+                            <div class="font-mono text-xs text-slate-400 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/60 leading-relaxed group-hover:text-slate-300 transition-colors">
+                                <span class="text-secondary-400">const</span> skills = [<br>
+                                &nbsp;&nbsp;'LangChain', 'LangGraph', 'MySQL'<br>
+                                &nbsp;&nbsp;'Python', 'C++', 'Agentic_AI'<br>
+                                ];
+                            </div>
+                        </div>
+
+                        <!-- Bottom details -->
+                        <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-800/80 pt-4 z-10 font-mono">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-code text-primary-400"></i> Glaxit Software Company Intern</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-secondary-400"></i> BSCS 2027</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Summary Section -->
+    <section id="about" class="py-20 bg-slate-900/30 border-y border-slate-800/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold text-primary-500 uppercase tracking-widest">Who Am I</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">Professional Summary</h3>
+                <div class="h-1.5 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Summary Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <p class="text-lg text-slate-300 leading-relaxed font-normal">
+                        I am a dedicated BS Computer Science student (BSCS 2027) at the University of Haripur with a strong logical foundation in python, standard C++, Data Structures, and modular backend development. 
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Currently, my development endeavors are heavily focused on Agentic AI systems and Large Language Model (LLM) workflows. I have hands-on experience utilizing cutting-edge toolchains like <strong class="text-primary-400">LangChain</strong>, <strong class="text-primary-400">LangGraph</strong>, and <strong class="text-primary-400">Hugging Face models</strong> to architect autonomous multi-agent pipelines and intelligent problem-solving workflows.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Beyond AI, I possess robust analytical capabilities in data preprocessing and predictive modelling using scikit-learn and pandas. I am eagerly looking for AI/LLM research or software engineering internships to bring dynamic, automated value to a tech-driven team.
+                    </p>
+
+                    <!-- Fast Facts Grid -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700/80 transition-all duration-300">
+                            <span class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">3.36</span>
+                            <span class="text-xs font-semibold text-slate-500 block uppercase tracking-wider mt-1">Current CGPA</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700/80 transition-all duration-300">
+                            <span class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">5+</span>
+                            <span class="text-xs font-semibold text-slate-500 block uppercase tracking-wider mt-1">Key AI & Systems Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Profile card -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 shadow-xl space-y-6">
+                        <h4 class="text-lg font-bold text-slate-100 flex items-center gap-2 border-b border-slate-800 pb-4">
+                            <i class="fa-solid fa-id-card text-primary-500"></i> Quick Bio Details
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500">Full Name</span>
+                                <span class="font-semibold text-slate-200">Hammad Younis Abbasi</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500">Academic Status</span>
+                                <span class="font-semibold text-slate-200">BSCS Candidate (2023 – 2027)</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500">Academic Institution</span>
+                                <span class="font-semibold text-primary-400 hover:underline">University of Haripur</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500">Core Focus</span>
+                                <span class="font-semibold text-secondary-400">Agentic AI & LLMs</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500">Languages</span>
+                                <span class="font-semibold text-slate-200">English, Urdu</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800 flex justify-center">
+                            <a href="#contact" class="flex items-center gap-2 text-sm text-secondary-400 hover:text-secondary-300 font-semibold transition-colors duration-200">
+                                Get In Touch Now <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold text-secondary-500 uppercase tracking-widest">Capabilities</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">Technical Toolset</h3>
+                <div class="h-1.5 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Category: AI / ML -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-primary-500/40 hover:bg-slate-900/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center text-xl mb-5 group-hover:scale-115 transition-transform duration-300">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-100 mb-4">AI & Machine Learning</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">LangChain</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">LangGraph</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Hugging Face</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">scikit-learn</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">TensorFlow</span>
+                    </div>
+                </div>
+
+                <!-- Category: Programming Languages -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-secondary-500/40 hover:bg-slate-900/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary-500/10 text-secondary-400 flex items-center justify-center text-xl mb-5 group-hover:scale-115 transition-transform duration-300">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-100 mb-4">Core Programming</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">C++ (OOP & DSA)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Data Structures & Algos</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Problem Solving</span>
+                    </div>
+                </div>
+
+                <!-- Category: Web Technologies -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-primary-500/40 hover:bg-slate-900/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center text-xl mb-5 group-hover:scale-115 transition-transform duration-300">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-100 mb-4">Web & Databases</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">HTML5</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">CSS3</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">JavaScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">MySQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">SQL Databases</span>
+                    </div>
+                </div>
+
+                <!-- Category: Data Analysis -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-secondary-500/40 hover:bg-slate-900/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary-500/10 text-secondary-400 flex items-center justify-center text-xl mb-5 group-hover:scale-115 transition-transform duration-300">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-100 mb-4">Data Analysis</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">NumPy</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Pandas</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Matplotlib</span>
+                    </div>
+                </div>
+
+                <!-- Category: Systems & Tools -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-primary-500/40 hover:bg-slate-900/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center text-xl mb-5 group-hover:scale-115 transition-transform duration-300">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-100 mb-4">Tools & Systems</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Git & GitHub</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">VS Code</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">UNIX / Linux</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Jupyter Notebooks</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Anaconda</span>
+                    </div>
+                </div>
+
+                <!-- Category: Professional Skills -->
+                <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-secondary-500/40 hover:bg-slate-900/60 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary-500/10 text-secondary-400 flex items-center justify-center text-xl mb-5 group-hover:scale-115 transition-transform duration-300">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-100 mb-4">Professional Abilities</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Logical Thinking</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Teamwork</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Clear Communication</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Time Management</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-950 text-xs font-medium text-slate-300 border border-slate-850">Fast Learner</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section (Education & Experience) -->
+    <section id="experience" class="py-20 bg-slate-900/30 border-y border-slate-800/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Education Timeline Column -->
+                <div>
+                    <h3 class="text-2xl font-extrabold text-slate-100 flex items-center gap-3 mb-10">
+                        <i class="fa-solid fa-graduation-cap text-primary-500"></i> Education Path
+                    </h3>
+
+                    <div class="relative pl-6 border-l-2 border-slate-800 space-y-12">
+                        
+                        <!-- Timeline Item: BS CS -->
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-primary-600 border-4 border-slate-900 ring-4 ring-primary-500/10"></span>
+                            
+                            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition-all duration-300">
+                                <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary-500/10 text-primary-400 border border-primary-500/20 mb-3">
+                                    2023 – 2027 (Expected)
+                                </span>
+                                <h4 class="text-lg font-bold text-slate-100">Bachelor of Science in Computer Science</h4>
+                                <p class="text-sm font-semibold text-secondary-400 mt-1">University of Haripur</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Department of Information Technology</p>
+                                
+                                <div class="mt-4 flex items-center gap-2">
+                                    <span class="text-xs text-slate-400 bg-slate-950 px-2.5 py-1 rounded-md font-mono border border-slate-800">
+                                        Current CGPA: 3.36 / 4.00
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Professional Experience Timeline Column -->
+                <div>
+                    <h3 class="text-2xl font-extrabold text-slate-100 flex items-center gap-3 mb-10">
+                        <i class="fa-solid fa-briefcase text-secondary-500"></i> Work Experience
+                    </h3>
+
+                    <div class="relative pl-6 border-l-2 border-slate-800 space-y-12">
+                        
+                        <!-- Timeline Item: CodeAlpha Internship -->
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-secondary-600 border-4 border-slate-900 ring-4 ring-secondary-500/10"></span>
+                            
+                            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition-all duration-300 space-y-3">
+                                <div class="flex items-center justify-between flex-wrap gap-2">
+                                    <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary-500/10 text-secondary-400 border border-secondary-500/20">
+                                        July 2025 – August 2025
+                                    </span>
+                                    <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                                        <i class="fa-solid fa-globe text-xs"></i> Remote
+                                    </span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-100">C++ Programming Intern</h4>
+                                <p class="text-sm font-semibold text-primary-400">CodeAlpha</p>
+                                
+                                <ul class="space-y-2 text-sm text-slate-400 pt-2 pl-4 list-disc marker:text-secondary-500">
+                                    <li>Developed multiple robust C++ OOP apps including a Banking System, CGPA Calculator, and User Registry.</li>
+                                    <li>Implemented dynamic file handling, constructors, data encapsulation, and class inheritance.</li>
+                                    <li>Utilized Git and GitHub repositories for reliable version control.</li>
+                                    <li>Strengthened low-level memory allocation, profiling, and modular testing practices.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-10">
+                <h2 class="text-xs font-bold text-primary-500 uppercase tracking-widest">Selected Works</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">Academic & Personal Projects</h3>
+                <div class="h-1.5 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Filters Grid -->
+            <div class="flex flex-wrap justify-center items-center gap-2 mb-12">
+                <button onclick="filterProjects('all')" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-md shadow-primary-500/20" data-filter="all">All</button>
+                <button onclick="filterProjects('ai')" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all duration-300" data-filter="ai">AI / ML</button>
+                <button onclick="filterProjects('cpp')" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all duration-300" data-filter="cpp">C++ & Systems</button>
+                <button onclick="filterProjects('web')" class="project-filter-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all duration-300" data-filter="web">Web Development</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                
+                <!-- Project 1: LLM QA Workflow -->
+                <div class="project-card flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-primary-500/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5" data-category="ai">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">AI / LLM</span>
+                            <div class="flex gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight hover:text-primary-400 transition-colors">LLM Question-Answering Workflow</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Built an LLM QA pipeline using Python and LangGraph. Integrates a Hugging Face Llama architecture through LangChain to digest query tokens and generate structured, smart autonomous multi-agent answers.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Python</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">LangGraph</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">LangChain</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Hugging Face</span>
+                        </div>
+                    </div>
+                     <div class="flex items-center justify-between mt-6 pt-4 border-t border-slate-800/60 text-sm">
+                        <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-check"></i> Finished</span>
+                        <a href="https://github.com/hammadyounisabbasi/AI-Chatbot-using-LangChain-Hugging-Face.git" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold flex items-center gap-1.5 hover:underline">
+                            Source Code <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+               <!-- Project 2: Personal Assistant Workflow -->
+                <div class="project-card flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-primary-500/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5" data-category="ai">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">AI / LLM</span>
+                            <div class="flex gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight hover:text-primary-400 transition-colors">AI Personal Assistant using n8n, Streamlit, and Ollama</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            AI-powered Personal Assistant built using n8n, Streamlit, and Ollama. It automates tasks like email management, calendar scheduling, note-taking, task handling, expense tracking, and web search through an interactive chat interface with workflow automation and local AI models.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Python</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Streamlit</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">API</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Ollama</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">N8N</span>
+                        </div>
+                    </div>
+                     <div class="flex items-center justify-between mt-6 pt-4 border-t border-slate-800/60 text-sm">
+                        <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-check"></i> Finished</span>
+                        <a href="https://github.com/hammadyounisabbasi/AI-Personal-Assistant-using-n8n-Streamlit-Ollama.git" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold flex items-center gap-1.5 hover:underline">
+                            Source Code <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                
+                <!-- Project 3: Advanced CGPA Calculator -->
+                <div class="project-card flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-primary-500/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5" data-category="web">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">Web Application</span>
+                            <div class="flex gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight hover:text-primary-400 transition-colors">Advanced CGPA Calculator</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Built a highly responsive web-based SGPA & CGPA estimation engine using client-side dynamic form builders. Employs modular DOM manipulation and state management for university grade calculations.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">HTML5</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">CSS3</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-6 pt-4 border-t border-slate-800/60 text-sm">
+                        <span class="text-emerald-400 flex items-center gap-1.5 font-semibold"><i class="fa-solid fa-circle-play text-xs"></i> Live Web</span>
+                        <a href="https://github.com/hammadyounisabbasi/Advance-CGPA-Calculator" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold flex items-center gap-1.5 hover:underline">
+                            Source Code <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Mini Bash Shell Implementation -->
+                <div class="project-card flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-primary-500/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5" data-category="cpp">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20">Operating Systems</span>
+                            <div class="flex gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight hover:text-primary-400 transition-colors">Mini Bash Shell</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Built a custom Linux console prompt interpreter in C++ utilizing fork–exec–wait system calls, managing execution pipelines, background jobs, directory queries, and IO redirections.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">C++</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">Linux API</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">POSIX</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-6 pt-4 border-t border-slate-800/60 text-sm">
+                        <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-check"></i> Finished</span>
+                        <a href="https://github.com/hammadyounisabbasi/Mini-Bash-Shell-Implimentation-Using-C" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold flex items-center gap-1.5 hover:underline">
+                            Source Code <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Banking Management System -->
+                <div class="project-card flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-primary-500/50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5" data-category="cpp">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">Console Software</span>
+                            <div class="flex gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight hover:text-primary-400 transition-colors">Banking Management System</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Developed a modular console-based account manager tool in C++ exploiting OOP designs. Supports active dynamic record insertions, money transactional histories, and local file storage.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">C++</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">OOP Concepts</span>
+                            <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">File Handling</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-6 pt-4 border-t border-slate-800/60 text-sm">
+                        <span class="text-slate-500 flex items-center gap-1.5"><i class="fa-solid fa-check"></i> Compiled</span>
+                        <a href="https://github.com/hammadyounisabbasi/CodeAlpha_BankingSystem" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white font-semibold flex items-center gap-1.5 hover:underline">
+                            Source Code <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Activities Section -->
+    <section class="py-20 bg-slate-900/30 border-y border-slate-800/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left: Certifications -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="space-y-4">
+                        <h2 class="text-xs font-bold text-primary-500 uppercase tracking-widest">Achievements</h2>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">Professional Certifications</h3>
+                        <div class="h-1.5 w-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Cert Card 1 -->
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-200">Programming (Intro)</h4>
+                                <p class="text-xs text-slate-500 mt-1">Authorized by Kaggle</p>
+                            </div>
+                        </div>
+
+                        <!-- Cert Card 2 -->
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-200">NumPy & Pandas Analytics</h4>
+                                <p class="text-xs text-slate-500 mt-1">Authorized by Kaggle</p>
+                            </div>
+                        </div>
+
+                        <!-- Cert Card 3 -->
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 text-primary-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-200">Programming for Everybody</h4>
+                                <p class="text-xs text-slate-500 mt-1">Getting Started with Python</p>
+                            </div>
+                        </div>
+
+                        <!-- Cert Card 4 -->
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-200">MySQL Database Structures</h4>
+                                <p class="text-xs text-slate-500 mt-1">Management & Schema Design</p>
+                            </div>
+                        </div>
+
+                        <!-- Cert Card 5 -->
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-200">C++ Programming Intern</h4>
+                                <p class="text-xs text-slate-500 mt-1">Certified by CodeAlpha</p>
+                            </div>
+                        </div>
+
+                        <!-- Cert Card 6 -->
+                        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-200">Office & Design Essentials</h4>
+                                <p class="text-xs text-slate-500 mt-1">MS Word, PPT & Canva Design</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right: Activities & Interests -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 shadow-xl space-y-5">
+                        <h4 class="text-lg font-bold text-slate-100 flex items-center gap-2 border-b border-slate-800 pb-4">
+                            <i class="fa-solid fa-compass text-secondary-500"></i> Interests & Research
+                        </h4>
+                        
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Actively learning and exploring Agentic AI systems, Large Language Models (LLMs), and AI agent frameworks such as LangChain and LangGraph.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Regularly practice **Data Structures and Algorithms** in C++ and build micro-utilities to reinforce standard analytical logic.
+                        </p>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Passionate about open-source developer circles, AI research, smart workflow engines, and collaborative communities on GitHub and Kaggle.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold text-secondary-500 uppercase tracking-widest">Endorsements</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">Academic References</h3>
+                <div class="h-1.5 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Reference Card 1 -->
+                <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-primary-500/40 hover:bg-slate-900/80 transition-all duration-300 space-y-6 relative group">
+                    <div class="absolute top-6 right-8 text-6xl text-slate-800/60 group-hover:text-primary-500/10 transition-colors pointer-events-none">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight">Dr. Mudassar Ali Khan</h4>
+                        <p class="text-xs font-semibold text-primary-400 font-mono tracking-wider uppercase">Lecturer, Department of IT</p>
+                        <p class="text-xs text-slate-500">University of Haripur</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-secondary-500"></i> mudaser@uoh.edu.pk</span>
+                            <button onclick="copyToClipboard('mudaser@uoh.edu.pk', 'Dr. Mudassar\'s Email')" class="text-slate-500 hover:text-slate-300 p-1" title="Copy Email">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-secondary-500"></i> 0995-920660</span>
+                            <button onclick="copyToClipboard('0995-920660', 'Dr. Mudassar\'s Phone')" class="text-slate-500 hover:text-slate-300 p-1" title="Copy Phone">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reference Card 2 -->
+                <div class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-secondary-500/40 hover:bg-slate-900/80 transition-all duration-300 space-y-6 relative group">
+                    <div class="absolute top-6 right-8 text-6xl text-slate-800/60 group-hover:text-secondary-500/10 transition-colors pointer-events-none">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <h4 class="text-xl font-bold text-slate-100 tracking-tight">Mr. Gul Nawaz</h4>
+                        <p class="text-xs font-semibold text-secondary-400 font-mono tracking-wider uppercase">Lecturer, Department of IT</p>
+                        <p class="text-xs text-slate-500">University of Haripur</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-primary-500"></i> gul.nwaz114@gmail.com</span>
+                            <button onclick="copyToClipboard('gul.nwaz114@gmail.com', 'Mr. Gul Nawaz\'s Email')" class="text-slate-500 hover:text-slate-300 p-1" title="Copy Email">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-primary-500"></i> 0333-6664155</span>
+                            <button onclick="copyToClipboard('0333-6664155', 'Mr. Gul Nawaz\'s Phone')" class="text-slate-500 hover:text-slate-300 p-1" title="Copy Phone">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900/30 border-t border-slate-800/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold text-primary-500 uppercase tracking-widest">Inquiries</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">Get In Touch</h3>
+                <div class="h-1.5 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
+                
+                <!-- Left Details Info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-bold text-slate-100">Let's discuss your next project</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            I am actively seeking software engineering internships, research fellowships, or innovative collaborative assignments. Send an email, phone me directly, or fill in the interactive form.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        
+                        <!-- Contact block 1 -->
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 text-primary-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-500 block uppercase">Email Address</span>
+                                <a href="mailto:hammadyounisabbasi@gmail.com" class="text-sm font-semibold text-slate-200 hover:text-primary-400 transition-colors">hammadyounisabbasi@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Contact block 2 -->
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-secondary-500/10 text-secondary-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-500 block uppercase">Phone Number</span>
+                                <a href="tel:0347-5678390" class="text-sm font-semibold text-slate-200 hover:text-secondary-400 transition-colors">0347-5678390</a>
+                            </div>
+                        </div>
+
+                        <!-- Contact block 3 -->
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 text-primary-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-500 block uppercase">Location</span>
+                                <span class="text-sm font-semibold text-slate-200">Kohsar Extension D block Taxila, Pakistan</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Interactive Form -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 shadow-xl space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="form_name" class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Your Name *</label>
+                                <input type="text" id="form_name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-850 hover:border-slate-700 focus:border-primary-500 focus:outline-none text-sm text-slate-100 placeholder-slate-600 transition-colors duration-200">
+                            </div>
+                            <div>
+                                <label for="form_email" class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Your Email *</label>
+                                <input type="email" id="form_email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-850 hover:border-slate-700 focus:border-primary-500 focus:outline-none text-sm text-slate-100 placeholder-slate-600 transition-colors duration-200">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="form_subject" class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Subject</label>
+                            <input type="text" id="form_subject" placeholder="Collaboration / Job Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-850 hover:border-slate-700 focus:border-primary-500 focus:outline-none text-sm text-slate-100 placeholder-slate-600 transition-colors duration-200">
+                        </div>
+
+                        <div>
+                            <label for="form_message" class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Message *</label>
+                            <textarea id="form_message" rows="5" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-850 hover:border-slate-700 focus:border-primary-500 focus:outline-none text-sm text-slate-100 placeholder-slate-600 resize-none transition-colors duration-200"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-500 hover:to-secondary-500 text-white font-bold text-sm tracking-wide shadow-xl shadow-primary-600/20 transform hover:-translate-y-0.5 transition-all duration-300">
+                            Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-10 relative z-10 text-center text-xs text-slate-500 space-y-4">
+        <p>&copy; 2026 Hammad Younis Abbasi. All Rights Reserved.</p>
+        <p class="flex items-center justify-center gap-1.5 text-[10px] tracking-wider uppercase font-semibold text-slate-600">
+            Constructed with <span class="text-rose-500"><i class="fa-solid fa-heart"></i></span> for premium display
+        </p>
+    </footer>
+
+    <!-- Interactive Toast Alerts -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-500 pointer-events-none">
+        <div class="flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-slate-900 border border-primary-500/40 shadow-2xl text-slate-100 text-sm">
+            <span id="toastIcon" class="text-primary-400"><i class="fa-solid fa-circle-check"></i></span>
+            <span id="toastText" class="font-medium">Notification message.</span>
+        </div>
+    </div>
+
+    <!-- LINK TO EXTERNAL SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
